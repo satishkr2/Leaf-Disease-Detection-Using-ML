@@ -1,0 +1,5 @@
+# Root requirements - install backend + model dependencies
+-r backend/requirements.txt
+
+# Model training (optional)
+tensorflow-datasets>=4.9.0

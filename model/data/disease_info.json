@@ -1,0 +1,66 @@
+{
+  "Tomato___Early_blight": {
+    "display_name": "Tomato Early Blight",
+    "description": "Early blight is a common fungal disease caused by Alternaria solani. It affects leaves, stems, and fruit, causing dark concentric rings and yellowing.",
+    "symptoms": "Brown spots with concentric rings on older leaves, yellow halos, leaf drop, stem lesions, fruit rot near stem.",
+    "causes": "Warm humid weather, poor air circulation, infected plant debris, overhead irrigation, stressed plants.",
+    "prevention": "Crop rotation, remove infected debris, mulch soil, water at base, ensure spacing for airflow, use resistant varieties.",
+    "prescription": "Apply chlorothalonil or copper fungicide every 7-10 days. Use mancozeb or azoxystrobin. Remove severely infected leaves. Improve nitrogen balance."
+  },
+  "Tomato___Late_blight": {
+    "display_name": "Tomato Late Blight",
+    "description": "Late blight is a devastating disease caused by Phytophthora infestans. It spreads rapidly in cool, wet conditions and can destroy entire crops.",
+    "symptoms": "Water-soaked gray-green lesions on leaves, white fuzzy growth underside, brown lesions on stems, firm brown spots on fruit.",
+    "causes": "Cool moist weather, infected seed potatoes, wind-borne spores, overcrowding, prolonged leaf wetness.",
+    "prevention": "Plant certified disease-free seed, avoid overhead watering, destroy volunteer plants, use resistant cultivars, monitor weather alerts.",
+    "prescription": "Apply chlorothalonil, copper, or phosphorous acid fungicides immediately. Use mandipropamid or fluopicolide for severe cases. Remove and destroy infected plants."
+  },
+  "Potato___Early_blight": {
+    "display_name": "Potato Early Blight",
+    "description": "Early blight in potatoes is caused by Alternaria solani, producing characteristic target-spot lesions on foliage and reducing tuber yield.",
+    "symptoms": "Dark brown lesions with concentric rings, yellowing and defoliation from bottom up, tuber dark lesions with corky texture.",
+    "causes": "Alternaria spores from crop residue, warm temperatures, alternating wet/dry periods, nutrient stress especially nitrogen.",
+    "prevention": "Rotate crops 3-4 years, hill soil around plants, balanced fertilization, irrigation management, certified seed tubers.",
+    "prescription": "Fungicides: azoxystrobin, chlorothalonil, or mancozeb. Apply at first sign. Supplement with potassium. Store tubers properly after harvest."
+  },
+  "Potato___healthy": {
+    "display_name": "Potato Healthy",
+    "description": "The leaf appears healthy with no significant disease symptoms. Continue good agricultural practices to maintain plant health.",
+    "symptoms": "Uniform green color, no spots or wilting, normal leaf texture and venation.",
+    "causes": "N/A - plant is in good health under proper care conditions.",
+    "prevention": "Maintain soil pH 5.0-6.0, adequate irrigation, balanced NPK fertilization, pest monitoring, crop rotation.",
+    "prescription": "No treatment needed. Continue preventive care: organic compost, drip irrigation, integrated pest management."
+  },
+  "Pepper__bell___Bacterial_spot": {
+    "display_name": "Pepper Bell Bacterial Spot",
+    "description": "Bacterial spot is caused by Xanthomonas species. It creates small water-soaked lesions that become necrotic and reduce fruit quality.",
+    "symptoms": "Small dark raised spots on leaves, yellow halos, fruit scab-like lesions, leaf drop in severe infections.",
+    "causes": "Infected seeds, splashing rain, high humidity, warm temperatures 24-30°C, handling wet plants.",
+    "prevention": "Use certified disease-free seed, avoid working wet fields, copper spray preventively, rotate away from solanaceous crops.",
+    "prescription": "Copper hydroxide or copper sulfate sprays. Streptomycin where permitted. Remove infected plants. Apply Actigard plant activator for resistance boost."
+  },
+  "Tomato___healthy": {
+    "display_name": "Tomato Healthy",
+    "description": "The tomato plant leaf shows no disease indicators. The plant is thriving under current conditions.",
+    "symptoms": "Vibrant green leaves, intact margins, no necrosis or chlorosis.",
+    "causes": "N/A - healthy plant status.",
+    "prevention": "Regular monitoring, proper staking, consistent watering, calcium supplement to prevent blossom end rot.",
+    "prescription": "No chemical treatment required. Apply balanced fertilizer 10-10-10 monthly during growth. Mulch and prune suckers as needed."
+  },
+  "Pepper__bell___healthy": {
+    "display_name": "Pepper Bell Healthy",
+    "description": "Healthy bell pepper foliage with optimal photosynthetic capacity and no pathogen activity detected.",
+    "symptoms": "Deep green glossy leaves, firm texture, no lesions or curling.",
+    "causes": "N/A",
+    "prevention": "Well-drained soil, full sun 6-8 hours, avoid overwatering, companion planting with basil or marigold.",
+    "prescription": "Maintain with organic matter compost. Light feeding with low-nitrogen fertilizer during fruiting."
+  },
+  "default": {
+    "display_name": "Plant Leaf Analysis",
+    "description": "Analysis completed. Please consult local agricultural extension for specific guidance.",
+    "symptoms": "Refer to uploaded image characteristics.",
+    "causes": "Environmental and pathogen factors may vary by region.",
+    "prevention": "Regular monitoring, proper irrigation, crop rotation, resistant varieties.",
+    "prescription": "Consult certified agronomist for region-specific treatment recommendations."
+  }
+}

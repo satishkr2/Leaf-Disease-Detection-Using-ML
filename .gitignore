@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+*.h5
+!model/saved_models/.gitkeep
+
+# Node
+node_modules/
+dist/
+.env
+.env.local
+
+# Data & uploads
+dataset/plantvillage/**/*
+!dataset/plantvillage/README.txt
+backend/uploads/*
+backend/processed/*
+!backend/uploads/.gitkeep
+!backend/processed/.gitkeep
+
+# IDE & OS
+.DS_Store
+.idea/
+.vscode/
+*.db
+plant_disease.db
+
+# Model plots (keep structure)
+model/plots/*.png
