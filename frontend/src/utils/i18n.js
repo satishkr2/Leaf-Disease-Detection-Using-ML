@@ -19,6 +19,7 @@ export const translations = {
     prevention: 'Prevention',
     treatment: 'Treatment & Prescription',
     analyzing: 'Analyzing leaf...',
+    analyzingLeaf: 'Checking for leaf, then analyzing...',
     dropHere: 'Drag & drop your leaf image here',
     orBrowse: 'or click to browse',
     healthy: 'Healthy',
@@ -26,6 +27,12 @@ export const translations = {
     voiceExplain: 'Listen to explanation',
     darkMode: 'Dark mode',
     lightMode: 'Light mode',
+    noLeafTitle: 'No Leaf Detected',
+    noLeafMessage:
+      'This image does not appear to contain a plant leaf. Please upload a clear leaf photo before disease detection.',
+    noLeafConfidence: 'Non-leaf confidence',
+    noLeafTip1: 'Use a single green leaf filling most of the frame',
+    noLeafTip2: 'Avoid faces, sky, soil-only, or unrelated objects',
   },
   es: {
     appName: 'PlantCare IA',
@@ -47,6 +54,7 @@ export const translations = {
     prevention: 'Prevención',
     treatment: 'Tratamiento y Prescripción',
     analyzing: 'Analizando hoja...',
+    analyzingLeaf: 'Comprobando hoja, luego analizando...',
     dropHere: 'Arrastra y suelta tu imagen aquí',
     orBrowse: 'o haz clic para buscar',
     healthy: 'Saludable',
@@ -54,6 +62,12 @@ export const translations = {
     voiceExplain: 'Escuchar explicación',
     darkMode: 'Modo oscuro',
     lightMode: 'Modo claro',
+    noLeafTitle: 'No se detectó hoja',
+    noLeafMessage:
+      'Esta imagen no parece contener una hoja de planta. Suba una foto clara de una hoja antes del análisis.',
+    noLeafConfidence: 'Confianza (no hoja)',
+    noLeafTip1: 'Use una sola hoja verde que llene el encuadre',
+    noLeafTip2: 'Evite rostros, cielo, solo tierra u otros objetos',
   },
   hi: {
     appName: 'PlantCare AI',
@@ -75,6 +89,7 @@ export const translations = {
     prevention: 'रोकथाम',
     treatment: 'उपचार और प्रिस्क्रिप्शन',
     analyzing: 'पत्ती का विश्लेषण...',
+    analyzingLeaf: 'पत्ती जांच, फिर विश्लेषण...',
     dropHere: 'अपनी पत्ती की छवि यहां खींचें',
     orBrowse: 'या ब्राउज़ करने के लिए क्लिक करें',
     healthy: 'स्वस्थ',
@@ -82,6 +97,12 @@ export const translations = {
     voiceExplain: 'व्याख्या सुनें',
     darkMode: 'डार्क मोड',
     lightMode: 'लाइट मोड',
+    noLeafTitle: 'पत्ती नहीं मिली',
+    noLeafMessage:
+      'इस छवि में पौधे की पत्ती नहीं दिखती। रोग जांच से पहले स्पष्ट पत्ती की फोटो अपलोड करें।',
+    noLeafConfidence: 'गैर-पत्ती विश्वास',
+    noLeafTip1: 'एक हरी पत्ती का उपयोग करें जो फ्रेम भर दे',
+    noLeafTip2: 'चेहरे, आसमान, मिट्टी या अन्य वस्तुओं से बचें',
   },
 }
 

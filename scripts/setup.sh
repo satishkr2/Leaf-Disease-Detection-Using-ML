@@ -18,6 +18,8 @@ PYTHON="$(dirname "$0")/../venv/bin/python"
 # Demo model
 echo "Creating demo ML model..."
 "$PYTHON" model/create_demo_model.py
+echo "Training leaf / non-leaf detector (may take a few minutes)..."
+"$PYTHON" model/leaf_detector/create_demo_model.py || echo "Leaf detector training skipped (optional)"
 
 # Sample images
 echo "Creating sample test images..."

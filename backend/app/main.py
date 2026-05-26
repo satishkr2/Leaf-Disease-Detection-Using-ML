@@ -10,6 +10,7 @@ from fastapi.staticfiles import StaticFiles
 from app.config import get_settings
 from app.database import init_db
 from app.routes import auth_routes, history_routes, predict_routes
+from app.services.leaf_detector import leaf_detector_service
 from app.services.predictor import predictor_service
 
 # Ensure preprocessing module is importable
@@ -25,6 +26,7 @@ PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 async def lifespan(app: FastAPI):
     await init_db()
     predictor_service.load_model()
+    leaf_detector_service.load_model()
 
     # Seed admin user if not exists
     from sqlalchemy import select
@@ -90,5 +92,8 @@ async def root():
 
 @app.get("/health")
 async def health():
-    model_loaded = predictor_service._model is not None
-    return {"status": "healthy", "model_loaded": model_loaded}
+    return {
+        "status": "healthy",
+        "model_loaded": predictor_service._model is not None,
+        "leaf_detector_loaded": leaf_detector_service._model is not None,
+    }

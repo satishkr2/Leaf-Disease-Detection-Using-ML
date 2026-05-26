@@ -9,6 +9,7 @@ A production-ready full-stack AI web application that detects plant leaf disease
 | Category | Features |
 |----------|----------|
 | **ML/DL** | CNN, MobileNetV2, ResNet50, EfficientNetB0 comparison, metrics, confusion matrix |
+| **Leaf gate** | Binary Leaf / Non-leaf detector runs **before** disease prediction |
 | **CV** | Resize, denoise, background clean, CLAHE, Canny edges, HSV leaf segmentation |
 | **Frontend** | Landing page, drag-drop upload, webcam, dark mode, i18n (EN/ES/HI), Framer Motion |
 | **Backend** | REST API, JWT auth, SQLite, PDF reports, chatbot, admin dashboard |
@@ -130,7 +131,18 @@ Or try auto-download:
 python model/download_dataset.py
 ```
 
-### Train & Compare Models
+### Train Leaf / Non-Leaf Detector
+
+```bash
+python model/leaf_detector/prepare_dataset.py
+python model/leaf_detector/train.py
+# Or one command:
+python model/leaf_detector/create_demo_model.py
+```
+
+Add real non-leaf photos (faces, sky, objects) to `dataset/leaf_binary/non_leaf/` for best results.
+
+### Train & Compare Disease Models
 
 ```bash
 python model/train.py

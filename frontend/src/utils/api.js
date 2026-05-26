@@ -39,15 +39,35 @@ export const upload = (file) => {
   return api.post('/api/upload', form)
 }
 
+/** Parse API error into { code, message, ...fields } */
+export function parseApiError(err, fallback = 'Request failed') {
+  const detail = err?.response?.data?.detail
+  if (!detail) {
+    return { code: null, message: err?.message || fallback }
+  }
+  if (typeof detail === 'string') {
+    return { code: null, message: detail }
+  }
+  if (Array.isArray(detail)) {
+    return {
+      code: null,
+      message: detail.map((d) => d.msg || d.message || JSON.stringify(d)).join(', '),
+    }
+  }
+  if (typeof detail === 'object' && detail.message) {
+    return {
+      code: detail.code || null,
+      message: detail.message,
+      confidence: detail.confidence,
+      detected_as: detail.detected_as,
+    }
+  }
+  return { code: null, message: JSON.stringify(detail) }
+}
+
 /** Normalize FastAPI error detail for UI display */
 export function formatApiError(err, fallback = 'Request failed') {
-  const detail = err?.response?.data?.detail
-  if (!detail) return fallback
-  if (typeof detail === 'string') return detail
-  if (Array.isArray(detail)) {
-    return detail.map((d) => d.msg || d.message || JSON.stringify(d)).join(', ')
-  }
-  return JSON.stringify(detail)
+  return parseApiError(err, fallback).message
 }
 export const getHistory = () => api.get('/api/history')
 export const getPrediction = (id) => api.get(`/api/history/${id}`)

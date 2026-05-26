@@ -76,7 +76,7 @@ export default function ImageUpload({ onPredict, loading, preview }) {
               {loading ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  {t('analyzing')}
+                  {t('analyzingLeaf')}
                 </>
               ) : (
                 <>

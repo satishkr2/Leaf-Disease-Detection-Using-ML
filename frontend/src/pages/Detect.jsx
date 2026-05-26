@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ImageUpload from '../components/ImageUpload'
 import PredictionResult from '../components/PredictionResult'
-import { predict } from '../utils/api'
-import { formatApiError } from '../utils/api'
+import NoLeafAlert from '../components/NoLeafAlert'
+import { predict, parseApiError } from '../utils/api'
 import { useLanguage } from '../context/LanguageContext'
 
 export default function Detect() {
@@ -11,16 +11,23 @@ export default function Detect() {
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
+  const [noLeaf, setNoLeaf] = useState(null)
 
   const handlePredict = async (file) => {
     setLoading(true)
     setError(null)
+    setNoLeaf(null)
     setResult(null)
     try {
       const res = await predict(file)
       setResult(res.data)
     } catch (err) {
-      setError(formatApiError(err, 'Prediction failed. Is the backend running on port 8000?'))
+      const parsed = parseApiError(err, 'Prediction failed. Is the backend running on port 8000?')
+      if (parsed.code === 'NO_LEAF_DETECTED') {
+        setNoLeaf(parsed)
+      } else {
+        setError(parsed.message)
+      }
     } finally {
       setLoading(false)
     }
@@ -45,9 +52,11 @@ export default function Detect() {
 
       <ImageUpload onPredict={handlePredict} loading={loading} />
 
+      {noLeaf && <NoLeafAlert message={noLeaf.message} confidence={noLeaf.confidence} />}
+
       {error && (
         <div className="mt-6 p-4 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-xl">
-          {typeof error === 'string' ? error : JSON.stringify(error)}
+          {error}
         </div>
       )}
 

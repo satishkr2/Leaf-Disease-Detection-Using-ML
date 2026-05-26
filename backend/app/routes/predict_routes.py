@@ -17,7 +17,13 @@ from app.models import Prediction, User
 from app.schemas import ChatMessage, ChatResponse, PredictionResponse
 from app.services.chatbot import get_chat_response
 from app.services.pdf_service import generate_prediction_pdf
+from app.services.leaf_detector import leaf_detector_service
 from app.services.predictor import predictor_service
+
+NO_LEAF_MESSAGE = (
+    "No plant leaf detected in this image. "
+    "Please upload a clear, close-up photo of a single plant leaf on a plain background."
+)
 
 router = APIRouter(tags=["Prediction"])
 settings = get_settings()
@@ -28,6 +34,22 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
+
+
+def ensure_leaf_in_image(image_path: str) -> None:
+    """Reject images that do not contain a detectable plant leaf."""
+    check = leaf_detector_service.check_image(image_path)
+    if not check["is_leaf"]:
+        raise HTTPException(
+            status_code=422,
+            detail={
+                "code": "NO_LEAF_DETECTED",
+                "message": NO_LEAF_MESSAGE,
+                "confidence": check["confidence"],
+                "detected_as": check["label"],
+                "method": check["method"],
+            },
+        )
 
 
 def validate_image(filename: str) -> None:
@@ -71,6 +93,8 @@ async def predict_disease(
     save_path = UPLOAD_DIR / f"{file_id}{ext}"
     with open(save_path, "wb") as f:
         f.write(content)
+
+    ensure_leaf_in_image(str(save_path))
 
     try:
         result = predictor_service.predict(str(save_path), str(PROCESSED_DIR))

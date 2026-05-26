@@ -22,6 +22,13 @@ class Settings(BaseSettings):
     database_url: str = "sqlite+aiosqlite:///./plant_disease.db"
     model_path: str = str(_PROJECT_ROOT / "model" / "saved_models" / "best_model.h5")
     class_labels_path: str = str(_PROJECT_ROOT / "model" / "saved_models" / "class_labels.json")
+    leaf_detector_path: str = str(
+        _PROJECT_ROOT / "model" / "leaf_detector" / "saved_models" / "leaf_detector.h5"
+    )
+    leaf_detector_labels_path: str = str(
+        _PROJECT_ROOT / "model" / "leaf_detector" / "saved_models" / "leaf_detector_labels.json"
+    )
+    leaf_detector_threshold: float = 0.55
     cors_origins: str = "http://localhost:5173,http://localhost:3000"
     admin_email: str = "admin@plantcare.local"
     admin_password: str = "admin123"
