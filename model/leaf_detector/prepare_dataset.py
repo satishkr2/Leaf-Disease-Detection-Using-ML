@@ -24,6 +24,15 @@ PLANTVILLAGE = PROJECT_ROOT / "dataset" / "plantvillage"
 
 MAX_PER_CLASS = 400
 SYNTHETIC_COUNT = 120
+IMAGE_EXT = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
+
+
+def count_images(folder: Path) -> int:
+    if not folder.exists():
+        return 0
+    return sum(
+        1 for p in folder.rglob("*") if p.is_file() and p.suffix.lower() in IMAGE_EXT
+    )
 
 
 def _clear_dir(d: Path):
@@ -94,6 +103,14 @@ def generate_synthetic():
 
 
 def main():
+    # Do not wipe folders if user already added their own dataset
+    if count_images(LEAF_DIR) > 50 or count_images(NON_LEAF_DIR) > 20:
+        print(
+            "Existing dataset detected — skipping wipe.\n"
+            "Train directly: python model/leaf_detector/train.py"
+        )
+        return
+
     _clear_dir(LEAF_DIR)
     _clear_dir(NON_LEAF_DIR)
 

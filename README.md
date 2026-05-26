@@ -202,6 +202,11 @@ Deploy `dist/` folder. Configure SPA redirects to `index.html`.
    ```
 4. Upload `model/saved_models/best_model.h5` or build during deploy
 
+```
+cd backend
+uvicorn app.main:app --reload --port 8000
+```
+
 ### Model Hosting
 
 - Bundle `.h5` with backend container (recommended)
